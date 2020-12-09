@@ -1,0 +1,93 @@
+*********************** DOCKER *********************** 
+** Instale o Docker for Windows
+** Abre o PowerShell
+** Execute os comandos para instalação do Postgres e depois do SonarQube
+
+***** COM BANCO DE DADOS
+docker pull postgres
+docker network create mynet
+docker run --restart always --name sonar-postgres -e POSTGRES_USER=sonar -e POSTGRES_PASSWORD=sonar -d -p 5432:5432 --net mynet postgres
+docker pull sonarqube
+docker run --restart always --name sonarqube -p 9000:9000 -e SONARQUBE_JDBC_USERNAME=sonar -e SONARQUBE_JDBC_PASSWORD=sonar -e SONARQUBE_JDBC_URL=jdbc:postgresql://sonar-postgres:5432/sonar -d --net mynet sonarqube
+
+***** SEM BANCO DE DADOS
+docker pull sonarqube
+docker run --restart always --name sonarqube -p 9000:9000 sonarqube
+
+*********************** COMMAND DOCKER ******************************* 
+** Listar os container 
+docker ps -a
+
+** Reinicar os container caso necessário ou se não iniciar junto ao windows
+** docker container restart [Container Id]
+docker container restart f06d2282bd0b
+docker container restart 2961a091f692
+
+************************* SONNAR SCANNER **************************** 
+** Extrair o SonarScanner.zip no C:\SonarScanner
+
+O diretório tem de ficar ASSIM
+
+C:\SonarScanner>
+-> docker.Sonar.Install.txt
+-> FW
+-> netcore
+-> nuget.config
+-> nuget.exe
+-> sonar-scanner-4.1.0.1829
+-> Sonar.bat
+
+** Edit o arquivo nuget.config para colocar as usas credenciais de rede.
+** Edit o arquivo Sonar.bat para efetuar as configurações: PathMSBuild, SonarLogin, SonarPassword, SonarHost
+
+Depois verifique os seguintes itens.
+
+1) Make sure the .NET Framework v4.7+ is installed
+2) Make sure the Java Runtime Environment 8 is installed
+3) Make sure the Java Runtime Environment 11 is installed
+4) Add the executable's directory to the %PATH% environment variable
+   PATH -> C:\SonarScanner;C:\SonarScanner\FW;
+
+** Abrir o cmd como administrador
+
+cd\
+cd SonarScanner
+
+** Executar a bat Sonar.bat
+
+C:\SonarScanner\Sonar.bat
+
+
+Sonar.bat C:\Users\mazza\source\repos\cadastro-promocodeMaster PromoCode-WindowsService.sln fw MASTER
+
+Sonar.bat C:\Users\mazza\source\repos\SkySales SkySales3.4.sln fw 21753
+
+************************************************************************************************
+You need to get inside the container and then try to execute your command
+
+Follow these steps:
+
+Use docker ps to get the name of the existing container
+Use the command docker exec -it <container name> /bin/bash to get a bash shell in the container
+Or directly use docker exec -it <container name> <command> to execute whatever command you specify in the container.
+
+
+docker exec -i -t 54b3912529e2 /bin/bash
+
+Copying files from host to Docker container
+The cp command can be used to copy files.
+
+One specific file can be copied TO the container like:
+
+docker cp foo.txt mycontainer:/foo.txt
+One specific file can be copied FROM the container like:
+
+docker cp mycontainer:/foo.txt foo.txt
+For emphasis, mycontainer is a container ID, not an image ID.
+
+Multiple files contained by the folder src can be copied into the target folder using:
+
+docker cp src/. mycontainer:/target
+docker cp mycontainer:/src/. target
+
+docker cp c:\com.checkmarx.sonar.cxplugin-8.90.0.jar 54b3912529e2:/opt/sonarqube/extensions/plugins/com.checkmarx.sonar.cxplugin-8.90.0.jar
