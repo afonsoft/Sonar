@@ -50,17 +50,14 @@ Extrair o SonarScanner.zip no C:\SonarScanner
 
 O diretório tem de ficar ASSIM
 >
-> C:\SonarScanner>
+> C:\SonarScanner>\
 > -> FW\
 > -> netcore\
 > -> sonar-scanner-4.1.0.1829\
-> -> .wslconfig
-> -> docker.Sonar.Install.txt
-> -> FW
-> -> netcore
-> -> nuget.config
-> -> nuget.exe
-> -> sonar-scanner-4.1.0.1829
+> -> .wslconfig\
+> -> docker.Sonar.Install.txt\
+> -> nuget.config\
+> -> nuget.exe\
 > -> Sonar.bat
 
 Edit o arquivo **nuget.config** para colocar as suas credenciais de rede. ``<packageSourceCredentials>``
@@ -176,12 +173,13 @@ Version (INC/CRD/MASTER): MASTER
 ```
 
 ### Creditos
-Documentação e arquivos de bath criado por [Afonso Dutra Nogueira Filho](mzt.adnfilho@voegol.com.br)
+Documentação e arquivos de bath criado por [Afonso Dutra Nogueira Filho](mailto:mzt.adnfilho@voegol.com.br)
 
 | Versão | Data | Informações | Autor |
 | ------ | ------ | ------ | ------ |
 | 1.0 | 23/10/2020 | Criação do Documento Markdwon | Afonso |
 | 1.1 | 26/10/2020 | Configuração WSL2 | Afonso |
 | 1.2 | 27/10/2020 | Links downloads | Afonso |
+| 1.3 | 16/02/2021 | Correção do textos | Afonso |
 
 
