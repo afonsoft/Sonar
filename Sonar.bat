@@ -29,7 +29,7 @@ SET PathSonar=C:\SonarScanner
 SET PathMSBuild=C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\MSBuild\Current\Bin
 SET PathNuget=C:\SonarScanner\
 SET SonarLogin=admin
-SET SonarPassword=admin
+SET SonarPassword=123qwe
 SET SonarHost=http://localhost:9000
 echo.
 "%PathNuget%\nuget.exe" config -configFile %PathNuget%\nuget.config
@@ -96,8 +96,7 @@ GOTO FIM
 	SET PathSonar="%PathSonar%\netcore"
 	SET OLDPATH = %PATH%
 	SET PATH = %PATH%;%PathMSBuild%;%PathSonar%;
-	dotnet restore --configfile %PathNuget%\nuget.config --ignore-failed-sources
-	dotnet restore  "%ProjectPath%\%ProjectName%"
+	dotnet restore  "%ProjectPath%\%ProjectName%" --configfile %PathNuget%\nuget.config --ignore-failed-sources
 	echo.
 	echo SonarQube.Scanner Begin
 	dotnet %PathSonar%\SonarScanner.MSBuild.dll begin /k:"%ProjectKey%" /n:"%ProjectKey%" /v:"%ProjectVersion%" /s:%PathSonar%\SonarQube.Analysis.xml /d:sonar.scm.provider=git /d:sonar.host.url=%SonarHost% /d:sonar.login=%SonarLogin% /d:sonar.password=%SonarPassword% 
