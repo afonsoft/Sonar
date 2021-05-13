@@ -17,10 +17,10 @@ echo Command Args
 echo Sonar.bat "Path" "Solution/ProjectName" "Type" "Version"
 echo.
 echo Type
-echo core    -- NetCore 2.0 to 3.1
+echo core    -- NetCore 2.0 to 5.0
 echo fw      -- framework 4.0 to 4.8
 echo php     -- PHP5 to PHP7
-echo Angular -- AngularV4 to AngularV6
+echo Angular -- AngularV4 to AngularV10
 echo React   -- React Native with NodeJS 
 echo #######################################################################
 echo.
@@ -203,7 +203,7 @@ GOTO FIM
 	@echo sonar.projectVersion=%ProjectVersion% >> %MYFILE%
 	@echo sonar.sources=App >> %MYFILE%
 	@echo sonar.javascript.file.suffixes=.js,.jsx >> %MYFILE%
-	@echo sonar.exclusions=**/android/**,**/ios/**,**/android/**/*,**/ios/**/*,**/*.java,**/*.h,**/*.symlink >> %MYFILE%
+	@echo sonar.exclusions=**/node_modules/**,**/node_modules/**/*,**/*.spec.ts,**/android/**,**/ios/**,**/android/**/*,**/ios/**/*,**/*.java,**/*.h,**/*.symlink >> %MYFILE%
 	@echo sonar.scm.provider=git >> %MYFILE%
 	echo.
 	echo File create %MYFILE%
