@@ -1,0 +1,16 @@
+# custom Android Studio VM options, see https://developer.android.com/studio/intro/studio-config.html
+-server
+-Xms2G
+-Xmx3072m
+-XX:MaxPermSize=2G
+-XX:ReservedCodeCacheSize=1G
+-XX:+UseConcMarkSweepGC
+-XX:SoftRefLRUPolicyMSPerMB=100
+-da
+-Djna.nosys=true
+-Djna.debug_load=true
+-Djna.debug_load.jna=true
+-Dsun.io.useCanonCaches=false
+-Djava.net.preferIPv4Stack=true
+-XX:+HeapDumpOnOutOfMemoryError
+-Didea.platform.prefix=AndroidStudio
