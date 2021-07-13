@@ -105,10 +105,14 @@ O nome do arquivo é **.wslconfig**
 
 ```config
 [wsl2]
-memory=1GB
+memory=512MB
 processors=2
 swap=8GB
 localhostForwarding=true
+nestedVirtualization=true
+debugConsole=true
+pageReporting=true
+kernelCommandLine=intel_iommu=on iommu=pt kvm.ignore_msrs=1 kvm-intel.nested=1 kvm-intel.ept=1 kvm-intel.emulate_invalid_guest_state=0 kvm-intel.enable_shadow_vmcs=1 kvm-intel.enable_apicv=1
 ```
 
 Reinicie o computador e, a partir de agora, você não terá problemas com alto consumo de memória.
