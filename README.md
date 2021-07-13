@@ -66,19 +66,19 @@ Tem de colocar as credencias de rede para cada url de **packageSources**.
 ```xml
   <packageSourceCredentials>
     <GolFeed>
-      <add key="Username" value="mzt.adnfilho@voegol.com.br" />
+      <add key="Username" value="adfilho@voegol.com.br" />
       <add key="ClearTextPassword" value="********" />
     </GolFeed>
     <EAF>
-      <add key="Username" value="mzt.adnfilho@voegol.com.br" />
+      <add key="Username" value="adfilho@voegol.com.br" />
       <add key="ClearTextPassword" value="********" />
     </EAF>
     <MMS>
-      <add key="Username" value="mzt.adnfilho@voegol.com.br" />
+      <add key="Username" value="adfilho@voegol.com.br" />
       <add key="ClearTextPassword" value="********" />
     </MMS>
     <Aggregate_Feeds>
-      <add key="Username" value="mzt.adnfilho@voegol.com.br" />
+      <add key="Username" value="adfilho@voegol.com.br" />
       <add key="ClearTextPassword" value="********" />
     </Aggregate_Feeds>
   </packageSourceCredentials>
@@ -99,14 +99,14 @@ SET SonarHost=http://localhost:9000
 A ultima versão do Docker roda junto com o WSL2 para utilizar o container linux.
 Porem em alguns casos ele consome muita mémoria da maquina. Existe uma configuração global para o WSL2.
 
-É possível definir uma configuração global para WSL2 no arquivo que deve existir na pasta do usuário **%UserProfile%** ex: **C:\Usuários\mzt.adnfilho**, este arquivo nos permite definir a RAM máxima que o WSL2 deve consumir, se utlizar o docker somente para o SonarQube pode deixar o limite em 512MB se utilizar o WSL2 para o ubuntu e docker deixar em 1G, se for utilizar o docker para outras finalidades deixe com pelo menos 2G de momoria.
+É possível definir uma configuração global para WSL2 no arquivo que deve existir na pasta do usuário **%UserProfile%** ex: **C:\Usuários\adfilho**, este arquivo nos permite definir a RAM máxima que o WSL2 deve consumir, se utlizar o docker somente para o SonarQube pode deixar o limite em 512MB se utilizar o WSL2 para o ubuntu e docker deixar em 1G, se for utilizar o docker para outras finalidades deixe com pelo menos 2G de momoria.
 
 O nome do arquivo é **.wslconfig**
 
 ```config
 [wsl2]
 memory=1GB
-processors=4
+processors=2
 swap=8GB
 localhostForwarding=true
 ```
@@ -132,7 +132,7 @@ C:\SonarScanner>
 * **core** - NetCore 2.0 to 3.1
 * **fw** - framework 4.0 to 4.8
 * **php** - PHP5 to PHP7
-* **Angular** - AngularV4 to AngularV6
+* **Angular** - AngularV4 to AngularV10
 * **React** - React Native with NodeJS 
 
 Você pode executar passando parametros para o bat ou somente rodar o bat e depois especificar cada parametro.
@@ -160,7 +160,7 @@ Type
 core    -- NetCore 2.0 to 3.1
 fw      -- framework 4.0 to 4.8
 php     -- PHP5 to PHP7
-Angular -- AngularV4 to AngularV6
+Angular -- AngularV4 to AngularV10
 React   -- React Native with NodeJS
 *********************************************************
 
@@ -173,7 +173,7 @@ Version (INC/CRD/MASTER): MASTER
 ```
 
 ### Creditos
-Documentação e arquivos de bath criado por [Afonso Dutra Nogueira Filho](mailto:mzt.adnfilho@voegol.com.br)
+Documentação e arquivos de bath criado por [Afonso Dutra Nogueira Filho](mailto:adfilho@voegol.com.br)
 
 | Versão | Data | Informações | Autor |
 | ------ | ------ | ------ | ------ |
@@ -181,5 +181,6 @@ Documentação e arquivos de bath criado por [Afonso Dutra Nogueira Filho](mailt
 | 1.1 | 26/10/2020 | Configuração WSL2 | Afonso |
 | 1.2 | 27/10/2020 | Links downloads | Afonso |
 | 1.3 | 16/02/2021 | Correção do textos | Afonso |
+| 1.4 | 13/07/2021 | Correção do textos | Afonso |
 
 
